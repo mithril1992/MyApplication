@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/mvvm_fragment"
-        android:name="com.example.myapplication.view.MVVMFragment"
+        android:name="com.example.myapplication.mvvm.view.MVVMFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_mvvm" >
     </fragment>
