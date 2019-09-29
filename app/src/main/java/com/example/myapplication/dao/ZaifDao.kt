@@ -1,11 +1,9 @@
 package com.example.myapplication.dao
 
-import com.example.myapplication.view.component.ListCellModel
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.CoroutineScope
 import okhttp3.*
 import java.io.IOException
 import java.lang.Exception
@@ -52,7 +50,7 @@ class ZaifDao {
     }
 }
 
-class CurrencyPair(
+data class CurrencyPair (
     @JsonProperty("item_japanese") val item_japanese : String,
     @JsonProperty("currency_pair") val currency_pair : String,
     @JsonProperty("id") val id : Int,
@@ -68,6 +66,4 @@ class CurrencyPair(
     @JsonProperty("is_token") val isToken : Boolean,
     @JsonProperty("title") val title : String,
     @JsonProperty("seq") val seq : Int
-): ListCellModel {
-    override val text = name
-}
+)

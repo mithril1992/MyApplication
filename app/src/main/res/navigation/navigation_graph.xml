@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/mvp_fragment"
-        android:name="com.example.myapplication.view.MVPFragment"
+        android:name="com.example.myapplication.mvp.view.MVPFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_mvp">
     </fragment>
