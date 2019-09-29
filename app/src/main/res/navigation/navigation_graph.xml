@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/menu_fragment">
+
+    <fragment
+        android:id="@+id/menu_fragment"
+        android:name="com.example.myapplication.view.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_from_menu_to_mvvm"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"
+            app:destination="@id/mvvm_fragment" />
+        <action
+            android:id="@+id/action_from_menu_to_mvp"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"
+            app:destination="@id/mvp_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mvvm_fragment"
+        android:name="com.example.myapplication.view.MVVMFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_mvvm" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/mvp_fragment"
+        android:name="com.example.myapplication.view.MVPFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_mvp">
+    </fragment>
+
+</navigation>
