@@ -1,7 +1,6 @@
 package com.example.myapplication.mvp.presenter
 
 import com.example.myapplication.dao.ZaifDao
-import com.example.myapplication.mvp.AbstractCurrencyListCellModel
 import com.example.myapplication.mvp.AbstractCurrencyListPresenter
 import com.example.myapplication.mvp.AbstractCurrencyListView
 import com.example.myapplication.mvp.model.CurrencyListCellModel
@@ -17,7 +16,7 @@ class Presenter: AbstractCurrencyListPresenter {
         view.showLoadingView()
 
         job = GlobalScope.launch {
-            val cellModels = loadCurrency()
+            val cellModels = loadCurrencyPairs()
             launch(Dispatchers.Main) {
                 view.updateListCellModel(cellModels)
                 view.hideLoadingView()
@@ -32,7 +31,7 @@ class Presenter: AbstractCurrencyListPresenter {
         }
     }
 
-    private suspend fun loadCurrency() = dao.requestCurrencies().await().map {
+    private suspend fun loadCurrencyPairs() = dao.requestCurrencies().await().map {
         CurrencyListCellModel(it.name)
     }
 }
