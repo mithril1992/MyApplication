@@ -1,16 +1,22 @@
 package com.example.myapplication.mvp
 
-interface AbstractCurrencyListView {
-    fun showLoadingView()
-    fun hideLoadingView()
-    fun updateListCellModel(cellModels: List<AbstractCurrencyListCellModel>)
-}
+import androidx.annotation.IdRes
 
-interface AbstractCurrencyListPresenter {
-    fun onViewResumed(view: AbstractCurrencyListView)
-    fun onViewPaused(view: AbstractCurrencyListView)
-}
+interface LoginPage {
+    interface View {
+        var presenter: Presenter
 
-interface AbstractCurrencyListCellModel {
-    val text: String
+        val userId: String
+        var userIdErrorMessage: String
+
+        val password: String
+        var passwordErrorMessage: String
+
+        fun navigate(@IdRes navigation: Int)
+    }
+
+    interface Presenter {
+        val view: View
+        fun login()
+    }
 }

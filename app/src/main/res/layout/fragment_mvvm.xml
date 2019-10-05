@@ -1,23 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <variable name="loading" type="Integer" />
-        <variable name="view_model" type="com.example.myapplication.mvvm.viewmodel.CurrencyListViewModel" />
+        <variable name="viewModel" type="com.example.myapplication.mvvm.viewmodel.LoginViewModel" />
     </data>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-        <ProgressBar
-            android:visibility="@{loading}"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_view"
+        <TextView
+            android:id="@+id/login_user_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:text="User ID"/>
+        <EditText
+            android:id="@+id/login_edit_user_id"
+            android:inputType="textVisiblePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@={viewModel.userId}"/>
+        <TextView
+            android:id="@+id/login_error_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorAccent"
+            android:text="@{viewModel.userIdErrorMessage}"/>
+        <TextView
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"/>
+        <EditText
+            android:id="@+id/login_edit_password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@={viewModel.password}"/>
+        <TextView
+            android:id="@+id/login_error_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorAccent"
+            android:text="@{viewModel.passwordErrorMessage}"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:onClick="@{viewModel::login}"
+            android:textSize="16sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

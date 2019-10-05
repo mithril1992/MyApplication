@@ -28,16 +28,39 @@
 
     <fragment
         android:id="@+id/mvvm_fragment"
-        android:name="com.example.myapplication.mvvm.view.MVVMFragment"
-        android:label="fragment_second"
+        android:name="com.example.myapplication.mvvm.view.LoginFragment"
+        android:label="MVVM"
         tools:layout="@layout/fragment_mvvm" >
+        <action
+            android:id="@+id/action_from_mvvm_to_success"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:destination="@id/success_fragment" />
     </fragment>
 
     <fragment
         android:id="@+id/mvp_fragment"
-        android:name="com.example.myapplication.mvp.view.MVPFragment"
-        android:label="fragment_third"
+        android:name="com.example.myapplication.mvp.view.LoginFragment"
+        android:label="MVP"
         tools:layout="@layout/fragment_mvp">
+        <action
+            android:id="@+id/action_from_mvp_to_success"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:destination="@id/success_fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/success_fragment"
+        android:name="com.example.myapplication.view.SuccessFragment"
+        android:label="Login Success"
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_from_success_to_menu"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"
+            app:popUpTo="@id/menu_fragment"/>
+    </fragment>
+
 
 </navigation>
